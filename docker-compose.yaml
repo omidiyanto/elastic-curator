@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  curator:
+    image: elasticsearch-curator:latest
+    container_name: curator
+    volumes:
+      - ./:/curator
+    command: >
+      sh -c
+      "curator --config /curator/curator.yaml /curator/action.yaml 2>&1 | tee -a /curator/curator.log"
+    restart: "no"
+

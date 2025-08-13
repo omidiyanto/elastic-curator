@@ -1,0 +1,20 @@
+actions:
+  1:
+    action: delete_indices
+    description: >-
+      Delete indices older than 7 days (based on index name), for any indices
+      containing "kube" & "service".
+    options:
+      ignore_empty_list: True
+      disable_action: False
+    filters:
+      - filtertype: pattern
+        kind: regex
+        value: '.*(kube|service).*'
+      - filtertype: age
+        source: name
+        direction: older
+        timestring: '%Y.%m.%d'
+        unit: days
+        unit_count: 7
+
