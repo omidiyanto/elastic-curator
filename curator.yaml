@@ -1,13 +1,12 @@
 elasticsearch:
   client:
     hosts:
-            - http://ELASTICSEARCH_OR_INDEXER_URL:PORT
+      - http://ELASTICSEARCH:PORT
     request_timeout: 30
   other_settings:
     master_only: False
     username: USER
     password: PASS
-
 
 logging:
   loglevel: INFO
